@@ -9,9 +9,11 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Snackbar } from '@mui/material';
+import { AuthContext } from '../contexts/AuthContext';
 
 const theme = createTheme();
 
@@ -20,13 +22,37 @@ export default function Authentication() {
     const [username,setUsername]=React.useState();
     const [password,setPassword]=React.useState();
     const [name,setName]=React.useState();
-    const [error,setSerror]=React.useState();
-    const [messages,setMessages]=React.useState();
+    const [error,setError]=React.useState();
+    const [message,setMessage]=React.useState();
 
     const [formState,setFormState]=React.useState(0);
 
     const [open,setOpen]=React.useState(false);
+    const {handleRegister,handleLogin} =React.useContext(AuthContext);
 
+    let handleAuth = async () => {
+        try {
+            if (formState === 0) {
+                let result = await handleLogin(username,password);
+            }
+            if (formState === 1) {
+                let result = await handleRegister(name,username,password);
+                console.log(result);
+                setUsername("");
+                setMessage(result);
+                setOpen(true);
+                setError("");
+                setFormState(0);
+                setPassword("");
+                
+            }
+        } catch (error) {
+            console.log(error);
+            
+            let message = (error.response.data.message);
+            setError(message);
+        }
+    }
   return (
     <ThemeProvider theme={theme}>
       <Container
@@ -104,6 +130,7 @@ export default function Authentication() {
               name="fullname"
               autoComplete="fullname"
               autoFocus
+              value={name}
               InputLabelProps={{ style: { color: 'white' } }} // White label color
               InputProps={{
                 style: { color: 'white', borderColor: 'blue' }, // White input text and custom border
@@ -121,6 +148,7 @@ export default function Authentication() {
               name="username"
               autoComplete="username"
               autoFocus
+              value={username}
               InputLabelProps={{ style: { color: 'white' } }} // White label color
               InputProps={{
                 style: { color: 'white', borderColor: 'blue' }, // White input text and custom border
@@ -136,6 +164,7 @@ export default function Authentication() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
               InputLabelProps={{ style: { color: 'white' } }} // White label color
               InputProps={{
                 style: { color: 'white' }, // White input text
@@ -162,8 +191,9 @@ export default function Authentication() {
               label="Remember me"
               sx={{ color: 'white' }} // White checkbox label
             />
-            <Button type="button" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-              Sign In
+            <p style={{color:"red"}}  > *{error}</p>
+            <Button type="button" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} onClick={handleAuth}>
+              {formState === 0? "Login" :"Register"} 
             </Button>
             <Grid container>
               <Grid item xs>
@@ -197,7 +227,11 @@ export default function Authentication() {
           />
         </Box>
       </Container>
+      <Snackbar 
+      open={open} autoHideDuration={4000} message={message}
+      />
     </ThemeProvider>
   );
 }
+
 
