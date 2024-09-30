@@ -26,8 +26,13 @@ export default function LandingPage() {
                 </div>
             </div>
             <div className="">
-                <img src="/mobile.png" alt="" />
-            </div>
+  <img 
+    src="/mobile3.png" 
+    alt="Mobile Image" 
+    style={{ width: '500px', height: 'auto' }} 
+  />
+</div>
+
         </div>
 
     </div>
