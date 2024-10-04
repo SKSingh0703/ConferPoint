@@ -9,8 +9,8 @@ import { connectToSocket } from "./controllers/socketManager.js";
 
 import userRoutes from "./routes/user.routes.js"
 
-const app=express(); 
-
+const app=express();  
+ 
 const server=createServer(app);
 const io=connectToSocket(server); //To make all socket related thing in one file in controllers
 

@@ -6,7 +6,7 @@
 
 
 
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -28,7 +28,7 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
+} */
 
 body {
   margin: 0;
@@ -38,10 +38,11 @@ body {
   min-height: 100vh;
 }
 
-h1 {
+/* h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+  
 
 button {
   border-radius: 8px;
@@ -61,6 +62,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+  
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -73,4 +75,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+}  */

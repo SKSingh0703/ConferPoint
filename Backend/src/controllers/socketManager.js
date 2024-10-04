@@ -5,6 +5,10 @@ let messages={};
 let timeOnline={};
 
 export const connectToSocket=(server)=>{
+
+    console.log("Connected");
+    
+
     const io=new Server(server,{
         cors:{
             origin:"*",
@@ -12,7 +16,7 @@ export const connectToSocket=(server)=>{
             allowedHeaders:["*"],
             credentials:true
         }
-    });
+    }); 
 
     io.on("connection",(socket)=>{
 
