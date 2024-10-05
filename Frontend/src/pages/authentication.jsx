@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Snackbar } from '@mui/material';
 import { AuthContext } from '../contexts/AuthContext';
 
+import "../styles/authComponent.css"
+
 const theme = createTheme();
 
 export default function Authentication() {
@@ -54,28 +56,29 @@ export default function Authentication() {
         }
     }
   return (
-    <div className="auth">
-    <ThemeProvider theme={theme}>
+    <div className="authContainer">
       <Container
         component="main"
         maxWidth="sm"
         sx={{
-          backgroundImage: 'url("public/background.png")', // Replace with your background image path
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          // backgroundImage: 'url("public/background.png")', // Replace with your background image path
+          // backgroundSize: 'cover',
+          // backgroundPosition: 'center',
+          // minHeight: '100vh',
+          // display: 'flex',
+          // justifyContent: 'center',
+          // alignItems: 'center',
         }}
       >
         <CssBaseline />
+        <div className="authBox">
         <Box
           sx={{
             width: '100%',
             maxWidth: 400,
-            bgcolor: 'rgba(0, 0, 0, 0.7)', // Semi-transparent background for the form
+            bgcolor: 'rgba(0, 0, 0, 0.7)',
             p: 4,
+            marginTop:7,
             borderRadius: 2,
             boxShadow: 3,
             display: 'flex',
@@ -210,15 +213,17 @@ export default function Authentication() {
             </Grid>
           </Box>
         </Box>
+        </div>
+        <div className="authPic">
         <Box
           sx={{
-            position: 'absolute',
-            top: '10px',
-            right: '100px',
-            width: 'auto', // Adjust width as needed
-            height: '100vh', // Adjust height as needed
-            borderRadius: '5%', // Optional: make it a circle
-            overflow: 'hidden',
+            // position: 'absolute',
+            // top: '10px',
+            // right: '100px',
+            // width: 'auto', 
+            // height: '100vh',
+            // borderRadius: '5%', 
+            // overflow: 'hidden',
           }}
         >
           <img
@@ -227,11 +232,11 @@ export default function Authentication() {
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </Box>
+        </div>
       </Container>
       <Snackbar 
       open={open} autoHideDuration={4000} message={message}
       />
-    </ThemeProvider>
     </div>
   );
 }

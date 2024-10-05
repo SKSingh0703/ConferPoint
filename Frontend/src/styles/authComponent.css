@@ -1,0 +1,25 @@
+.authContainer {
+    background: yellow;
+    display: flex  !important;
+    flex-direction: row;
+    justify-content: flex-start !important;
+    align-items: center;
+}
+
+.authBox {
+    position: fixed;
+    left: 0;
+    background: black;
+    background-image: url("public/background.png"); /* Replace with your image path */
+    background-size: cover; /* Makes sure the image covers the entire box */
+    background-position: center; 
+    width: 28vw;
+    height: 100vh;
+}
+
+.authPic {
+    position: fixed;
+    margin-left:8rem ;
+    width: 50vw;
+    height: 100vh;
+}
