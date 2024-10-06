@@ -31,22 +31,22 @@
 - The interface is designed with Material-UI for a sleek, modern appearance and an easy-to-navigate experience. The layout is responsive and adjusts smoothly across different devices and screen sizes.
 
 # Technologies Used
-- ConferPoint is built using modern technologies to ensure performance, scalability, and security:
+ ConferPoint is built using modern technologies to ensure performance, scalability, and security:
 
-- Frontend:
+1. Frontend:
  - React.js: Dynamic user interfaces and single-page application architecture.
  - Vite: Fast build system and development tool.
  - Socket.IO-client: Real-time chat communication.
  -  Material UI
  -  Axios
  -  CSS
-- Backend:
+2. Backend:
  - Node.js: Server-side JavaScript runtime.
  - Express.js: Fast and lightweight web server.
  - WebRTC: Handles video and audio connections.
  - Socket.IO: Manages real-time communication between server and clients.
  - bcrypt: Handles password encryption for authentication.
-- Authentication:
+3. Authentication:
  - crypto: Provides secure and stateless authentication.
  - Database: MongoDB for storing user data securely.
  - Deployment: Hosted on Render for robust, scalable, and reliable deployment.
