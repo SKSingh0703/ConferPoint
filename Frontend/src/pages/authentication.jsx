@@ -27,6 +27,7 @@ export default function Authentication() {
     const [error,setError]=React.useState();
     const [message,setMessage]=React.useState();
 
+      const [loggingIn ,setLoggingIn] =React.useState(false);
     const [formState,setFormState]=React.useState(0);
 
     const [open,setOpen]=React.useState(false);
@@ -35,6 +36,8 @@ export default function Authentication() {
     let handleAuth = async () => {
         try {
             if (formState === 0) {
+                setLoggingIn(true);
+                setTimeout(() => setLoggingIn(false), 10000);
                 let result = await handleLogin(username,password);
                 
             }
@@ -193,7 +196,7 @@ export default function Authentication() {
             />
             <p style={{color:"red"}}  > *{error}</p>
             <Button type="button" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} onClick={handleAuth}>
-              {formState === 0? "Login" :"Register"} 
+              {formState === 0? (loggingIn ?"Logging in..." : "Login") :"Register"} 
             </Button>
             <Grid container>
               <Grid item xs>
