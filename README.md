@@ -5,25 +5,25 @@
 1. Video Conferencing
 - ConferPoint offers crystal-clear video calls for both one-on-one meetings and group sessions. Our platform allows users to easily create and join video calls with features such as:
 
-i. High-quality video and audio: Experience minimal lag and optimal clarity during calls.
-ii. Dynamic participant management: Join or leave video calls seamlessly.
-iii. Responsive layouts: Automatically adjusts to your device, providing an excellent experience on both desktop and mobile platforms.
+ High-quality video and audio: Experience minimal lag and optimal clarity during calls.
+ Dynamic participant management: Join or leave video calls seamlessly.
+ Responsive layouts: Automatically adjusts to your device, providing an excellent experience on both desktop and mobile platforms.
 2. Real-Time Chat
 - Alongside video conferencing, ConferPoint provides a fully integrated chat system, allowing participants to communicate in real-time through text. Key features include:
 
-i. Instant Messaging: Send messages instantly to all participants during the call.
-ii. Notification System: Get alerts for unread messages, ensuring important updates are never missed.
+ Instant Messaging: Send messages instantly to all participants during the call.
+ Notification System: Get alerts for unread messages, ensuring important updates are never missed.
 
 3. Authentication & Security
 - ConferPoint prioritizes security and privacy by offering secure user authentication and protected meeting access. Our authentication features include:
 
-i. User Registration and Login: Securely register and log in using an intuitive, easy-to-use interface.
-ii. JWT-based Sessions: ConferPoint uses JSON Web Tokens (JWT) to maintain session security, ensuring user data is protected.
+ User Registration and Login: Securely register and log in using an intuitive, easy-to-use interface.
+ JWT-based Sessions: ConferPoint uses JSON Web Tokens (JWT) to maintain session security, ensuring user data is protected.
 4. WebRTC Integration
 - ConferPoint leverages WebRTC (Web Real-Time Communication) technology to establish peer-to-peer connections directly between users for video and audio transmission. This ensures:
 
-i. Low latency communication: Real-time video and audio streaming without unnecessary delay.
-ii. Direct peer connections: Minimal server interaction once the connection is established, leading to more secure and faster communication.
+ Low latency communication: Real-time video and audio streaming without unnecessary delay.
+ Direct peer connections: Minimal server interaction once the connection is established, leading to more secure and faster communication.
 5. Socket.IO for Real-Time Interactions
 - We use Socket.IO for handling real-time bidirectional communication, ensuring low-latency and instant chat messaging during video conferences.
 
