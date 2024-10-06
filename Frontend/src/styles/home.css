@@ -11,16 +11,14 @@
     height: 10vh;
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: space-between;
     gap: 1rem;
     align-items: center;
     margin-top: 1rem;
 }
 .headerOnVideo img {  /* Light grey for the header */
     width: 5vw;
-    position: absolute;
-    top: 1rem;
-    left: 20rem;
+
 }
 
 .headerOnVideo h1 {
@@ -32,6 +30,18 @@
     color: #003366; /* Professional dark blue color */
     font-family: 'Poppins', sans-serif; /* Custom font */
     margin-left: 1rem;
+}
+.Links{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+}
+.LinksChildren{
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
 }
 
 .leftRightContainer {
@@ -103,7 +113,7 @@
 }
 
 .connectTextOnVideo h3 {
-    color: #000000; /* Black color for headings */
+    color: #2823368f; /* Black color for headings */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -125,4 +135,3 @@ body {
     padding: 0;
     overflow-x: hidden;
 }
-

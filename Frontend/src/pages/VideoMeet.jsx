@@ -49,7 +49,7 @@ export default function VideoMeetComponent() {
 
     let [message, setMessage] = useState("");
 
-    let [newMessages, setNewMessages] = useState(3);
+    let [newMessages, setNewMessages] = useState(0);
 
     let [askForUsername, setAskForUsername] = useState(true);
 
@@ -126,16 +126,13 @@ export default function VideoMeetComponent() {
         if (video !== undefined && audio !== undefined) {
             getUserMedia();
             console.log("SET STATE HAS ", video, audio);
-
         }
+    }, [video, audio]);
 
-
-    }, [video, audio])
     let getMedia = () => {
         setVideo(videoAvailable);
         setAudio(audioAvailable);
         connectToSocketServer();
-
     }
 
 
@@ -150,7 +147,7 @@ export default function VideoMeetComponent() {
         localVideoref.current.srcObject = stream
 
         for (let id in connections) {
-            if (id === socketIdRef.current) continue
+            if (id === socketIdRef.current) continue;
 
             connections[id].addStream(window.localStream)
 
@@ -293,7 +290,7 @@ export default function VideoMeetComponent() {
                 clients.forEach((socketListId) => {
 
                     connections[socketListId] = new RTCPeerConnection(peerConfigConnections)
-                    // Wait for their ice candidate       
+                   
                     connections[socketListId].onicecandidate = function (event) {
                         if (event.candidate != null) {
                             socketRef.current.emit('signal', socketListId, JSON.stringify({ 'ice': event.candidate }))
@@ -385,11 +382,10 @@ export default function VideoMeetComponent() {
 
     let handleVideo = () => {
         setVideo(!video);
-        // getUserMedia();
+        
     }
     let handleAudio = () => {
         setAudio(!audio)
-        // getUserMedia();
     }
 
     useEffect(() => {
@@ -456,6 +452,7 @@ export default function VideoMeetComponent() {
 
                    <div className="headerOnVideo">
                     <h1>ConferPoint</h1>
+                    <img src="/Logo.jpg" alt="" />
                    </div>
 
                    
@@ -465,13 +462,14 @@ export default function VideoMeetComponent() {
                     <div className="leftOnVideo">
 
                     <div className="">
-                        <h1> <b>Video Calls and meeting</b> </h1>
-                        <h1><b>for everyone</b></h1>
+                        <h1><b>Enter a username visible</b></h1>
+                        <h1><b>to other participants</b></h1>
                     </div>
                     <div className="">
-                        <h3>Connect,collaborate and celebrate</h3>
-                        <h3>from anywhere with ConferPoint</h3>
+                        <h3>Connect, collaborate, and celebrate</h3>
+                        <h3>anywhere, anytime with ConferPoint</h3>
                     </div>
+
 
                     <div className="ButtonOnVideo">
                         <TextField id="outlined-basic" label="Username" value={username} onChange={e => setUsername(e.target.value)} variant="outlined" />
@@ -484,11 +482,12 @@ export default function VideoMeetComponent() {
 
                     <div className="rightOnVideo">
                         <div className="connectPic">
-                            <img src="../public/conference.jpg" alt="" />
+                            {/* <img src="../public/conference.jpg" alt="" /> */}
+                            <video ref={localVideoref} autoPlay muted></video>
                         </div>
                         <div className="connectTextOnVideo">
-                            <h3>Get a link that you can share</h3>
-                            <p>Click <b>Connect</b> to get a link that you can send to people that you want to meet with</p>
+                            <h3>Click connect to join meeting instantly</h3>
+                            {/* <p>Click <b>Connect</b> to join the meet</p> */}
                         </div>
                     </div>
                     </div>
@@ -505,26 +504,32 @@ export default function VideoMeetComponent() {
                     {showModal ? <div className={styles.chatRoom}>
 
                         <div className={styles.chatContainer}>
-                            <h1>Chat</h1>
+
+                            <div className= {styles.chattingHeader} >
+                                <h2>In-call messages</h2>
+                            </div>
 
                             <div className={styles.chattingDisplay}>
 
                                 {messages.length !== 0 ? messages.map((item, index) => {
 
-                                    console.log(messages)
+                                    console.log(messages);
                                     return (
-                                        <div style={{ marginBottom: "20px" }} key={index}>
-                                            <p style={{ fontWeight: "bold" }}>{item.sender}</p>
-                                            <p>{item.data}</p>
+                                        <div className={styles.messageContainer} key={index}>
+                                            <p className={styles.sender}>{item.sender}</p>
+                                            <p className={styles.messageText}>{item.data}</p>
                                         </div>
+
                                     )
-                                }) : <p>No Messages Yet</p>}
+                                }) : <p className={styles.messageText}>No Messages Yet</p>}
 
 
                             </div>
 
                             <div className={styles.chattingArea}>
-                                <TextField value={message} onChange={(e) => setMessage(e.target.value)} id="outlined-basic" label="Enter Your chat" variant="outlined" />
+                                <div className={styles.chattingMessage}>
+                                    <TextField value={message} onChange={(e) => setMessage(e.target.value)} id="outlined-basic" label="Enter Your chat" variant="outlined" />
+                                </div>
                                 <Button variant='contained' onClick={sendMessage}>Send</Button>
                             </div>
 
@@ -534,34 +539,41 @@ export default function VideoMeetComponent() {
 
 
                     <div className={styles.buttonContainers}>
+                        <div className={styles.icon}>
                         <IconButton onClick={handleVideo} style={{ color: "white" }}>
                             {(video === true) ? <VideocamIcon /> : <VideocamOffIcon />}
                         </IconButton>
+                        </div>
+                        <div className={styles.icon}>
                         <IconButton onClick={handleEndCall} style={{ color: "red" }}>
                             <CallEndIcon  />
                         </IconButton>
+                        </div>
+                        <div className={styles.icon}>
                         <IconButton onClick={handleAudio} style={{ color: "white" }}>
                             {audio === true ? <MicIcon /> : <MicOffIcon />}
                         </IconButton>
-
+                        </div>
+                        <div className={styles.icon}>
                         {screenAvailable === true ?
                             <IconButton onClick={handleScreen} style={{ color: "white" }}>
                                 {screen === true ? <ScreenShareIcon /> : <StopScreenShareIcon />}
                             </IconButton> : <></>}
-
-                        <Badge badgeContent={newMessages} max={999} color='orange'>
+                        </div>
+                        <div className={styles.icon}>
+                        <Badge badgeContent={newMessages} max={999} color='error'>
                             <IconButton onClick={() => setModal(!showModal)} style={{ color: "white" }}>
                                 <ChatIcon />                        </IconButton>
                         </Badge>
-
+                        </div>
                     </div>
 
-
+                    <div className={styles.meetingRoom}>
                     <video className={styles.meetUserVideo} ref={localVideoref} autoPlay muted></video>
 
                     <div className={styles.conferenceView}>
                         {videos.map((video) => (
-                            <div key={video.socketId}>
+                            <div key={video.socketId} className={styles.participant}>
                                 <video
 
                                     data-socket={video.socketId}
@@ -570,13 +582,15 @@ export default function VideoMeetComponent() {
                                             ref.srcObject = video.stream;
                                         }
                                     }}
+                                    className={styles.participantVideo}
                                     autoPlay
                                 >
+                                    
                                 </video>
                             </div>
 
                         ))}
-
+                    </div>
                     </div>
 
                 </div>

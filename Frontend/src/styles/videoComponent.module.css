@@ -1,63 +1,112 @@
 .meetVideoContainer {
     position: relative;
     height: 100vh;
-    background: rgb(1, 4, 48);
+    background: rgba(32,33,36,255);
+    display: flex;
+    padding: 1rem;
+}
+
+.meetingRoom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    padding: 0px;
 }
 
 .meetUserVideo {
     position: absolute;
     bottom: 10vh;
-    height: 20vh;
+    height: 21vh;
     width: auto;
-    left: 0;
+    left: 1rem;
     border-radius: 20px;
 }
+
+.conferenceView {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 15px;
+    max-width: 73vw; /* Limit the width to a percentage of the viewport */
+    height: 100vh; /* Fill the viewport height */
+}
+
+/* Base participant styles */
+.participant {
+    background: rgba(51, 53, 55, 255);
+    border: 1px solid;
+    border-radius: 8px; 
+    overflow: hidden; 
+    flex: 1 1 auto; 
+    min-width: auto; 
+    height: 21vh; 
+}
+
+.participantVideo {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+}
+
+
+
 
 .buttonContainers {
     position: absolute;
     width: 100vw;
     bottom: 0;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    gap: 0rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .buttonContainers svg {
     font-size: 3rem;
 }
 
-.conferenceView { 
 
-    display: flex;
-    
-    padding: 10px;
-    gap: 10px;
-}
-
-.conferenceView  video {
-    width: 40vw;
-    height: 20vh;
-    min-width: 30vw;
-    border-radius: 10px;
-}
 
 .chatRoom {
     position: absolute;
-    height: 90vh;
+    height: 85vh;
     right: 0;
     background: white;
     border-radius: 10px;
-    width: 30vw;
-    padding-inline: 20px;
+    width: 22vw;
+    padding: 15px;
+    margin:0 1rem;
 }
 
 .chatContainer {
     position: relative;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.chatContainer h2 {
+    font-family: 'Poppins', sans-serif;
+    opacity: 0.8;
 }
 
 
 .chattingArea {
     position: absolute;
     bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    /* border-radius: 20%; */
+}
+.chattingMessage{
+    /* background: rgba(241,243,244,255); */
 }
 
 /* For the local video stream */
@@ -75,4 +124,46 @@
   width: 250px;
   height: 150px;
   border-radius: 8px;
+}
+
+.messageContainer {
+    margin-bottom: 20px; /* Space between messages */
+    padding: 1.2rem 0.3rem; /* Padding for better spacing */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    background-color: #f1f1f1; /* Light grey background for messages */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    max-width: 85%; /* Limit width for readability */
+    word-wrap: break-word; /* Ensures long words are wrapped */
+}
+
+.sender {
+    font-weight:bold;
+    opacity: 0.8;
+    color: #333; /* Dark grey for sender text */
+    margin-bottom: 5px; /* Space below sender name */
+    font-family: 'Poppins', sans-serif;
+    transform: scale(0.8);
+}
+
+.messageText {
+    font-weight: normal; /* Regular weight for message text */
+    color: #555; /* Slightly lighter grey for message text */
+    line-height: 1.5; /* Improved line spacing for readability */
+    font-family: 'Poppins', sans-serif;
+    transform: scale(0.8);
+}
+.chattingDisplay {
+    height: 62vh; /* Set a fixed height for the chat area */
+    overflow-y: auto; 
+    padding: 10px; /* Optional: Add padding for better spacing */
+    /* border: 1px solid #ccc;  */
+    border-radius: 8px; /* Optional: Rounded corners */
+    background-color: #f9f9f9; /* Optional: Light background color */
+}
+
+.icon{
+    background: rgba(51,53,55,255);
+    border-radius: 2.2rem;
+    padding: 1rem;
+    transform: scale(0.7);
 }
