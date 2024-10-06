@@ -5,20 +5,20 @@
 1. Video Conferencing
 - ConferPoint offers crystal-clear video calls for both one-on-one meetings and group sessions. Our platform allows users to easily create and join video calls with features such as:
 
- High-quality video and audio: Experience minimal lag and optimal clarity during calls.
- Dynamic participant management: Join or leave video calls seamlessly.
- Responsive layouts: Automatically adjusts to your device, providing an excellent experience on both desktop and mobile platforms.
+  - High-quality video and audio: Experience minimal lag and optimal clarity during calls.
+  - Dynamic participant management: Join or leave video calls seamlessly.
+  - Responsive layouts: Automatically adjusts to your device, providing an excellent experience on both desktop and mobile platforms.
 2. Real-Time Chat
 - Alongside video conferencing, ConferPoint provides a fully integrated chat system, allowing participants to communicate in real-time through text. Key features include:
 
- Instant Messaging: Send messages instantly to all participants during the call.
- Notification System: Get alerts for unread messages, ensuring important updates are never missed.
+  - Instant Messaging: Send messages instantly to all participants during the call.
+  - Notification System: Get alerts for unread messages, ensuring important updates are never missed.
 
 3. Authentication & Security
 - ConferPoint prioritizes security and privacy by offering secure user authentication and protected meeting access. Our authentication features include:
 
- User Registration and Login: Securely register and log in using an intuitive, easy-to-use interface.
- JWT-based Sessions: ConferPoint uses JSON Web Tokens (JWT) to maintain session security, ensuring user data is protected.
+  - User Registration and Login: Securely register and log in using an intuitive, easy-to-use interface.
+  - JWT-based Sessions: ConferPoint uses JSON Web Tokens (JWT) to maintain session security, ensuring user data is protected.
 4. WebRTC Integration
 - ConferPoint leverages WebRTC (Web Real-Time Communication) technology to establish peer-to-peer connections directly between users for video and audio transmission. This ensures:
 
@@ -34,22 +34,25 @@
 - ConferPoint is built using modern technologies to ensure performance, scalability, and security:
 
 - Frontend:
-React.js: Dynamic user interfaces and single-page application architecture.
-Vite: Fast build system and development tool.
-Socket.IO-client: Real-time chat communication.
+ - React.js: Dynamic user interfaces and single-page application architecture.
+ - Vite: Fast build system and development tool.
+ - Socket.IO-client: Real-time chat communication.
+ -  Material UI
+ -  Axios
+ -  CSS
 - Backend:
-Node.js: Server-side JavaScript runtime.
-Express.js: Fast and lightweight web server.
-WebRTC: Handles video and audio connections.
-Socket.IO: Manages real-time communication between server and clients.
-bcrypt: Handles password encryption for authentication.
+ - Node.js: Server-side JavaScript runtime.
+ - Express.js: Fast and lightweight web server.
+ - WebRTC: Handles video and audio connections.
+ - Socket.IO: Manages real-time communication between server and clients.
+ - bcrypt: Handles password encryption for authentication.
 - Authentication:
-JWT (JSON Web Tokens): Provides secure and stateless authentication.
-Database: MongoDB for storing user data securely.
-Deployment: Hosted on Render for robust, scalable, and reliable deployment.
+ - crypto: Provides secure and stateless authentication.
+ - Database: MongoDB for storing user data securely.
+ - Deployment: Hosted on Render for robust, scalable, and reliable deployment.
 
-Getting Started
-Prerequisites
+- Getting Started
+- Prerequisites
 Ensure you have the following installed:
 
 Node.js (version 20.x or above)
@@ -59,20 +62,20 @@ npm (or yarn) for managing packages
 git clone https://github.com/SKSingh0703/ConferPoint.git
 - Navigate to the project directory:
 
-cd ConferPoint
+ - cd ConferPoint
 - Install the dependencies:
 
-npm install
+ - npm install
 - Running the Application
 - To start the development server:
 
-npm run dev
+ - npm run dev
 - To build the application for production:
 
-npm run build
+ - npm run build
 - To preview the production build:
 
-npm run preview
+ - npm run preview
 # Contributing
 - We welcome contributions to improve ConferPoint! If you would like to contribute, please follow these steps:
 
