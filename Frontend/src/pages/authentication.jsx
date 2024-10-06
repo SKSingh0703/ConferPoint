@@ -223,7 +223,7 @@ export default function Authentication() {
           }}
         >
           <img
-            src="public/auth.jpg" 
+            src="/auth.jpg" 
             alt="Corner Image"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
