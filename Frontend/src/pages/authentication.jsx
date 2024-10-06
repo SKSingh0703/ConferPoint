@@ -37,7 +37,7 @@ export default function Authentication() {
         try {
             if (formState === 0) {
                 setLoggingIn(true);
-                setTimeout(() => setLoggingIn(false), 10000);
+                setTimeout(() => setLoggingIn(false), 100000);
                 let result = await handleLogin(username,password);
                 
             }
