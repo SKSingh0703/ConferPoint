@@ -45,6 +45,11 @@ export default function Authentication() {
             // Clear any previous errors
             setError("");
             
+            // Prevent multiple rapid clicks while a request is in-flight
+            if (loggingIn) {
+                return;
+            }
+            
             if (formState === 0) {
                 // Validate login form
                 if (!email.trim()) {
@@ -81,6 +86,7 @@ export default function Authentication() {
                     return;
                 }
                 
+                setLoggingIn(true);
                 let result = await handleRegister(name, email, username, password);
                 console.log(result);
                 setEmail("");
@@ -91,6 +97,7 @@ export default function Authentication() {
                 setError("");
                 setFormState(0);
                 setPassword("");
+                setLoggingIn(false);
             }
         } catch (error) {
             console.log("Authentication error:", error);
